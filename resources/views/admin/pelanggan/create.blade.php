@@ -339,14 +339,20 @@
                                     <div class="mb-3">
                                         <label for="first_name" class="form-label">First name</label>
                                         <input type="text" id="first_name" class="form-control" name="first_name"
-                                            required>
+                                            value="{{ old('first_name') }}">
+                                        @error('first_name')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <!-- Last Name -->
                                     <div class="mb-3">
                                         <label for="last_name" class="form-label">Last name</label>
                                         <input type="text" id="last_name" class="form-control" name="last_name"
-                                            required>
+                                            value="{{ old('last_name') }}">
+                                        @error('last_name')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -355,7 +361,10 @@
                                     <div class="mb-3">
                                         <label for="birthday" class="form-label">Birthday</label>
                                         <input type="date" id="birthday" class="form-control" name="birthday"
-                                            required>
+                                            value="{{ old('birthday') }}">
+                                        @error('birthday')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <!-- Gender -->
@@ -367,6 +376,9 @@
                                             <option value="Female">Female</option>
                                             <option value="Other">Other</option>
                                         </select>
+                                        @error('gender')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -375,13 +387,20 @@
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>
                                         <input type="email" id="email" class="form-control" name="email"
-                                            required>
+                                            value="{{ old('email') }}">
+                                        @error('email')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <!-- Phone -->
                                     <div class="mb-3">
                                         <label for="phone" class="form-label">Phone</label>
-                                        <input type="text" id="phone" class="form-control" name="phone">
+                                        <input type="text" id="phone" class="form-control" name="phone"
+                                            value="{{ old('phone') }}">
+                                        @error('phone')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <!-- Buttons -->

@@ -339,15 +339,22 @@
                                     <!-- First Name -->
                                     <div class="mb-3">
                                         <label for="first_name" class="form-label">First name</label>
-                                        <input type="text" id="first_name" class="form-control" name="first_name"
-                                            value="{{ $dataPelanggan->first_name }}" required>
+                                        <input type="text" name="first_name"
+                                            value="{{ old('first_name', $dataPelanggan->first_name) }}">
+
+                                        @error('first_name')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <!-- Last Name -->
                                     <div class="mb-3">
                                         <label for="last_name" class="form-label">Last name</label>
                                         <input type="text" id="last_name" class="form-control" name="last_name"
-                                            value="{{ $dataPelanggan->last_name }}" required>
+                                            value="{{ old('last_name', $dataPelanggan->last_name) }}">
+                                        @error('last_name')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -356,7 +363,10 @@
                                     <div class="mb-3">
                                         <label for="birthday" class="form-label">Birthday</label>
                                         <input type="date" id="birthday" class="form-control" name="birthday"
-                                            value="{{ $dataPelanggan->birthday }}" required>
+                                            value="{{ old('birthday', $dataPelanggan->birthday) }}">
+                                        @error('birthday')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <!-- Gender -->
@@ -364,9 +374,14 @@
                                         <label for="gender" class="form-label">Gender</label>
                                         <select id="gender" name="gender" class="form-select">
                                             <option value="">-- Pilih --</option>
-                                            <option value="Male" {{ $dataPelanggan->gender == 'Male' ? 'selected' : '' }}>Male</option>
-                                            <option value="Female" {{ $dataPelanggan->gender == 'Female' ? 'selected' : '' }}>Female</option>
-                                            <option value="Other" {{ $dataPelanggan->gender == 'Other' ? 'selected' : '' }}>Other</option>
+                                            <option value="Male"
+                                                {{ $dataPelanggan->gender == 'Male' ? 'selected' : '' }}>Male</option>
+                                            <option value="Female"
+                                                {{ $dataPelanggan->gender == 'Female' ? 'selected' : '' }}>Female
+                                            </option>
+                                            <option value="Other"
+                                                {{ $dataPelanggan->gender == 'Other' ? 'selected' : '' }}>Other
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -376,14 +391,20 @@
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>
                                         <input type="email" id="email" class="form-control" name="email"
-                                            value="{{ $dataPelanggan->email }}" required>
+                                            value="{{ old('email', $dataPelanggan->email) }}" required>
+                                        @error('email')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <!-- Phone -->
                                     <div class="mb-3">
                                         <label for="phone" class="form-label">Phone</label>
                                         <input type="text" id="phone" class="form-control" name="phone"
-                                            value="{{ $dataPelanggan->phone }}" required>
+                                            value="{{ old('phone', $dataPelanggan->phone) }}" required>
+                                        @error('phone')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <!-- Buttons -->
