@@ -339,7 +339,7 @@
                                     <!-- First Name -->
                                     <div class="mb-3">
                                         <label for="first_name" class="form-label">First name</label>
-                                        <input type="text" name="first_name"
+                                        <input type="text" id="first_name" class="form-control" name="first_name"
                                             value="{{ old('first_name', $dataPelanggan->first_name) }}">
 
                                         @error('first_name')
