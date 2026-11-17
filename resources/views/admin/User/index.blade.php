@@ -1,4 +1,4 @@
-@extends('layout.admin.app')
+@extends('layouts.admin.app')
 @section('content')
         {{-- Start MainContent --}}
         <div class="py-4">
@@ -16,11 +16,11 @@
             </nav>
             <div class="d-flex justify-content-between w-100 flex-wrap">
                 <div class="mb-3 mb-lg-0">
-                    <h1 class="h4">Data Pelanggan</h1>
-                    <p class="mb-0">List data seluruh pelanggan</p>
+                    <h1 class="h4">Data User</h1>
+                    <p class="mb-0">List data seluruh user</p>
                 </div>
                 <div>
-                    <a href="{{route('user.create')}}" class="btn btn-success text-white"><i class="far fa-question-circle me-1"></i> Tambah Pelanggan</a>
+                    <a href="{{route('user.create')}}" class="btn btn-success text-white"><i class="far fa-question-circle me-1"></i> Tambah User</a>
                 </div>
             </div>
         </div>

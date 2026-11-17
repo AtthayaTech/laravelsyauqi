@@ -36,20 +36,20 @@
     <meta name="theme-color" content="#ffffff">
 
     {{-- Start CSS --}}
-    @include("layout.admin.css")
+    @include("layouts.admin.css")
     {{-- End CSS --}}
 
 </head>
 
 <body>
     {{-- Start Sidebar --}}
-    @include("layout.admin.sidebar")
+    @include("layouts.admin.sidebar")
     {{-- End Sidebar --}}
 
     <main class="content">
 
         {{-- Start Header --}}
-        @include("layout.admin.header")
+        @include("layouts.admin.header")
         {{-- End Header --}}
 
         {{-- Start MainContent --}}
@@ -57,12 +57,12 @@
         {{-- End MainContent --}}
 
         {{-- Start Footer --}}
-        @include("layout.admin.footer")
+        @include("layouts.admin.footer")
         {{-- End Footer --}}
     </main>
 
     {{-- Start JS --}}
-    @include("layout.admin.js")
+    @include("layouts.admin.js")
     {{-- End JS --}}
 </body>
 

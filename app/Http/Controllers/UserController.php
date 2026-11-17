@@ -14,7 +14,7 @@ class UserController extends Controller
     public function index()
     {
         $data['dataUser'] = User::all();
-		return view('layout.admin.user.index',$data);
+		return view('admin.user.index',$data);
     }
 
     /**
@@ -78,7 +78,7 @@ class UserController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = hash::make($request->password);
+        $user->password = Hash::make($request->password);
 
         $user->save();
         return redirect()->route('user.index')->with('success','Perubahan Akun Berhasil!');
