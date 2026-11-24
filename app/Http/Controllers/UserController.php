@@ -14,7 +14,7 @@ class UserController extends Controller
     public function index()
     {
         $data['dataUser'] = User::all();
-		return view('admin.user.index',$data);
+        return view('admin.user.index', $data);
     }
 
     /**
@@ -31,18 +31,20 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-        'name' => 'required|string',
-        'email'  => 'required|email',
-        'password'   => 'required|string',
-    ]);
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+            'role' => 'required|in:Super Admin,Pelanggan,Mitra',
+        ]);
 
         $data['name'] = $request->name;
-		$data['email'] = $request->email;
-		$data['password'] = Hash::make($request->string);
+        $data['email'] = $request->email;
+        $data['password'] = Hash::make($request->string);
+        $data['role'] = $request->role;
 
-		User::create($data);
+        User::create($data);
 
-		return redirect()->route('user.index')->with('success','Penambahan Akun Berhasil!');
+        return redirect()->route('user.index')->with('success', 'Penambahan Akun Berhasil!');
     }
 
     /**
@@ -68,10 +70,11 @@ class UserController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-        'name' => 'required|string',
-        'email'      => 'required|email',
-        'password'      => 'required|string',
-    ]);
+            'name' => 'required|string',
+            'email'      => 'required|email',
+            'password'      => 'required|string',
+            'role' => 'required|in:Super Admin,Pelanggan,Mitra',
+        ]);
 
         $user_id = $id;
         $user = User::findOrFail($user_id);
@@ -79,9 +82,10 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
+        $user->role = $request->role;
 
         $user->save();
-        return redirect()->route('user.index')->with('success','Perubahan Akun Berhasil!');
+        return redirect()->route('user.index')->with('success', 'Perubahan Akun Berhasil!');
     }
 
     /**
@@ -92,6 +96,6 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         $user->delete();
-        return redirect()->route('user.index')->with('success','Akun berhasil dihapus');
+        return redirect()->route('user.index')->with('success', 'Akun berhasil dihapus');
     }
 }
